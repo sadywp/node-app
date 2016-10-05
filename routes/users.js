@@ -18,9 +18,9 @@ router.get('/', function(req, res, next) {
 
 router.get('/addusers', function(req, res, next) {
     var model = new users_model();
-    model.user_name = "张山";
-    model.user_age = "45";
-    model.user_sex = "男";
+    model.user_name = "李四";
+    model.user_age = "60";
+    model.user_sex = "女";
     model.save(function(err, rs) {
         if (err) {
             res.send(err);

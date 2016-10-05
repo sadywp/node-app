@@ -9,6 +9,7 @@ var bodyParser = require('body-parser');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var test = require('./routes/test');
+var news=require('./routes/news');
 
 var app = express();
 
@@ -27,10 +28,18 @@ app.use(bodyParser.json(true,'1000000000kb'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use('/public',express.static(path.join(__dirname, 'public')));
+app.use(function(req, res, next) {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Credentials', true);
+    res.setHeader('Access-Control-Allow-Methods', 'POST, GET, PUT, DELETE, OPTIONS');
+    next();
+});
+
 
 app.use('/', routes);
 app.use('/users', users);
 app.use('/test', test);
+app.use('/news',news);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
