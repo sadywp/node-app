@@ -5,7 +5,6 @@ var devSetting={
 var productiongSetting={
 	mongoShardsAddr:"mongodb://127.0.0.1:27017"
 }
-var testSetting={}
 
 if(env=='dev'){
 	setresult=devSetting;
