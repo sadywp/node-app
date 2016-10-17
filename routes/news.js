@@ -19,7 +19,7 @@ router.get('/:type', function(req, res, next) {
 router.get('/getDetials/:id', function(req, res, next) {
     var id=req.params.id+'';
     var model=news_model;
-    model.find({title:id},function(err,rs){
+    model.find({newsid:id},function(err,rs){
         if(err){
             res.status(500).end();
             return console.log(err);
